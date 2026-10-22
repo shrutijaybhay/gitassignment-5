@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Shruti Jaybhay is an MCA student and fresher interested in software development and technology for agriculture.">
+	<title>Shruti Jaybhay | MCA Student &amp; Fresher</title>
+
+	<!-- Google Fonts give the portfolio a crisp, modern feel. -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+	<style>
+		/* Theme colors and reusable values */
+		:root {
+			--ink: #182b27;
+			--muted: #65746f;
+			--green: #176b55;
+			--green-dark: #104b3d;
+			--mint: #e7f2ec;
+			--paper: #f8faf7;
+			--white: #ffffff;
+			--orange: #e98558;
+			--line: #e4eae5;
+			--shadow: 0 18px 50px rgba(24, 43, 39, 0.09);
+		}
+
+		/* A small reset keeps spacing predictable across browsers. */
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+			scroll-behavior: smooth;
+			scroll-padding-top: 88px;
+		}
+
+		body {
+			background: var(--paper);
+			color: var(--ink);
+			font-family: "DM Sans", sans-serif;
+			line-height: 1.65;
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		img {
+			display: block;
+			max-width: 100%;
+		}
+
+		.container {
+			width: min(1120px, calc(100% - 48px));
+			margin-inline: auto;
+		}
+
+		.section {
+			padding: 100px 0;
+		}
+
+		.section-heading {
+			max-width: 650px;
+			margin-bottom: 42px;
+		}
+
+		.eyebrow {
+			display: inline-flex;
+			align-items: center;
+			gap: 9px;
+			margin-bottom: 14px;
+			color: var(--green);
+			font-size: 0.78rem;
+			font-weight: 700;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+		}
+
+		.eyebrow::before {
+			width: 22px;
+			height: 2px;
+			background: var(--orange);
+			content: "";
+		}
+
+		h1, h2, h3, .brand {
+			font-family: "Manrope", sans-serif;
+		}
+
+		.section-heading h2 {
+			margin-bottom: 12px;
+			font-size: clamp(2rem, 4vw, 2.8rem);
+			letter-spacing: -0.04em;
+			line-height: 1.15;
+		}
+
+		.section-heading p,
+		.muted {
+			color: var(--muted);
+		}
+
+		/* Top navigation */
+		.site-header {
+			position: sticky;
+			z-index: 10;
+			top: 0;
+			border-bottom: 1px solid rgba(228, 234, 229, 0.85);
+			background: rgba(248, 250, 247, 0.92);
+			backdrop-filter: blur(14px);
+		}
+
+		.nav-wrap {
+			display: flex;
+			min-height: 76px;
+			align-items: center;
+			justify-content: space-between;
+			gap: 24px;
+		}
+
+		.brand {
+			color: var(--green-dark);
+			font-size: 1.1rem;
+			font-weight: 800;
+		}
+
+		.brand span {
+			color: var(--orange);
+		}
+
+		.nav-links {
+			display: flex;
+			align-items: center;
+			gap: 28px;
+			list-style: none;
+		}
+
+		.nav-links a {
+			color: var(--muted);
+			font-size: 0.88rem;
+			font-weight: 600;
+			transition: color 180ms ease;
+		}
+
+		.nav-links a:hover,
+		.nav-links a:focus-visible {
+			color: var(--green);
+		}
+
+		.nav-contact {
+			padding: 10px 17px;
+			border: 1px solid var(--green);
+			border-radius: 4px;
+			color: var(--green) !important;
+		}
+
+		/* Hero section */
+		.hero {
+			position: relative;
+			overflow: hidden;
+			padding: 86px 0 98px;
+			background:
+				radial-gradient(ellipse at 78% 30%, rgba(231, 242, 236, 0.95), transparent 34%),
+				var(--paper);
+		}
+
+		.hero-grid {
+			display: grid;
+			min-height: 490px;
+			align-items: center;
+			grid-template-columns: 1.05fr 0.95fr;
+			gap: 70px;
+		}
+
+		.hero-copy {
+			animation: rise-in 700ms ease both;
+		}
+
+		.hero-copy .eyebrow {
+			margin-bottom: 20px;
+		}
+
+		.hero h1 {
+			max-width: 620px;
+			margin-bottom: 20px;
+			font-size: clamp(2.8rem, 6vw, 5rem);
+			letter-spacing: -0.065em;
+			line-height: 1.04;
+		}
+
+		.hero h1 span {
+			color: var(--green);
+		}
+
+		.hero-copy > p {
+			max-width: 520px;
+			margin-bottom: 30px;
+			color: var(--muted);
+			font-size: 1.08rem;
+		}
+
+		.button-row {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 12px;
+		}
+
+		.button {
+			display: inline-flex;
+			min-height: 48px;
+			align-items: center;
+			justify-content: center;
+			padding: 0 21px;
+			border: 1px solid var(--green);
+			border-radius: 4px;
+			background: var(--green);
+			color: var(--white);
+			font-size: 0.9rem;
+			font-weight: 700;
+			transition: transform 180ms ease, background 180ms ease;
+		}
+
+		.button:hover {
+			transform: translateY(-2px);
+			background: var(--green-dark);
+		}
+
+		.button-secondary {
+			background: transparent;
+			color: var(--green);
+		}
+
+		.button-secondary:hover {
+			background: var(--mint);
+			color: var(--green-dark);
+		}
+
+		.hero-visual {
+			position: relative;
+			min-height: 430px;
+			animation: rise-in 850ms 100ms ease both;
+		}
+
+		.hero-photo {
+			position: absolute;
+			inset: 12px 15px 12px 45px;
+			overflow: hidden;
+			border-radius: 46% 46% 5px 5px;
+			background: #c9ddd1;
+			box-shadow: var(--shadow);
+		}
+
+		.hero-photo img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+
+		.photo-caption {
+			position: absolute;
+			right: 0;
+			bottom: 38px;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			padding: 15px 18px;
+			border: 1px solid var(--line);
+			border-radius: 4px;
+			background: var(--white);
+			box-shadow: var(--shadow);
+		}
+
+		.caption-mark {
+			display: grid;
+			width: 38px;
+			height: 38px;
+			place-items: center;
+			border-radius: 50%;
+			background: var(--mint);
+			color: var(--green);
+			font-size: 1.1rem;
+		}
+
+		.photo-caption strong,
+		.photo-caption small {
+			display: block;
+		}
+
+		.photo-caption strong {
+			font-size: 0.82rem;
+		}
+
+		.photo-caption small {
+			color: var(--muted);
+			font-size: 0.75rem;
+		}
+
+		/* About and education */
+		.about-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 70px;
+		}
+
+		.about-copy p + p {
+			margin-top: 16px;
+		}
+
+		.about-note {
+			align-self: center;
+			padding: 30px;
+			border-left: 3px solid var(--orange);
+			background: var(--mint);
+			color: var(--green-dark);
+			font-family: "Manrope", sans-serif;
+			font-size: 1.1rem;
+			font-weight: 600;
+			line-height: 1.6;
+		}
+
+		.education {
+			background: var(--white);
+		}
+
+		.education-list {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 18px;
+		}
+
+		.education-item {
+			display: flex;
+			gap: 18px;
+			padding: 25px;
+			border: 1px solid var(--line);
+			border-radius: 4px;
+			background: var(--paper);
+			transition: transform 180ms ease, box-shadow 180ms ease;
+		}
+
+		.education-item:hover,
+		.project-card:hover {
+			transform: translateY(-4px);
+			box-shadow: var(--shadow);
+		}
+
+		.education-icon {
+			display: grid;
+			width: 44px;
+			height: 44px;
+			flex: 0 0 44px;
+			place-items: center;
+			border-radius: 4px;
+			background: var(--mint);
+			color: var(--green);
+			font-size: 1.2rem;
+		}
+
+		.education-item h3 {
+			margin-bottom: 4px;
+			font-size: 1.03rem;
+		}
+
+		.education-item p {
+			color: var(--muted);
+			font-size: 0.9rem;
+		}
+
+		.education-item .year {
+			margin-top: 8px;
+			color: var(--green);
+			font-size: 0.78rem;
+			font-weight: 700;
+		}
+
+		/* Technical skills */
+		.skills-layout {
+			display: grid;
+			grid-template-columns: 0.8fr 1.2fr;
+			align-items: start;
+			gap: 70px;
+		}
+
+		.skills-layout .section-heading {
+			margin-bottom: 0;
+		}
+
+		.skill-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 12px;
+		}
+
+		.skill {
+			display: flex;
+			min-width: 135px;
+			flex: 1 1 135px;
+			align-items: center;
+			gap: 11px;
+			padding: 15px 16px;
+			border: 1px solid var(--line);
+			border-radius: 4px;
+			background: var(--white);
+			font-weight: 600;
+			transition: border-color 180ms ease, transform 180ms ease;
+		}
+
+		.skill:hover {
+			transform: translateY(-3px);
+			border-color: #9cbcaf;
+		}
+
+		.skill-dot {
+			width: 9px;
+			height: 9px;
+			border-radius: 50%;
+			background: var(--orange);
+		}
+
+		.skills-content {
+			min-width: 0;
+		}
+
+		.languages {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 10px;
+			margin-top: 25px;
+		}
+
+		.languages strong {
+			margin-right: 4px;
+			font-family: "Manrope", sans-serif;
+			font-size: 0.9rem;
+		}
+
+		.language-tag {
+			padding: 6px 11px;
+			border: 1px solid var(--line);
+			border-radius: 4px;
+			background: var(--white);
+			color: var(--muted);
+			font-size: 0.82rem;
+		}
+
+		/* Project cards */
+		.projects {
+			background: var(--green-dark);
+			color: var(--white);
+		}
+
+		.projects .eyebrow {
+			color: #b6d8c8;
+		}
+
+		.projects .section-heading p {
+			color: #c3d2cc;
+		}
+
+		.project-grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
+		}
+
+		.project-card {
+			overflow: hidden;
+			border: 1px solid rgba(255, 255, 255, 0.14);
+			border-radius: 4px;
+			background: rgba(255, 255, 255, 0.07);
+			transition: transform 180ms ease, box-shadow 180ms ease;
+		}
+
+		.project-art {
+			position: relative;
+			display: grid;
+			min-height: 205px;
+			overflow: hidden;
+			place-items: center;
+			background: #d8e9dc;
+			color: var(--green-dark);
+		}
+
+		.project-art::before,
+		.project-art::after {
+			position: absolute;
+			width: 210px;
+			height: 210px;
+			border: 1px solid rgba(23, 107, 85, 0.22);
+			border-radius: 50%;
+			content: "";
+		}
+
+		.project-art::after {
+			width: 150px;
+			height: 150px;
+		}
+
+		.project-symbol {
+			z-index: 1;
+			font-size: 3.7rem;
+			animation: float 4s ease-in-out infinite;
+		}
+
+		.project-card:nth-child(2) .project-art {
+			background: #f4dfce;
+		}
+
+		.project-content {
+			padding: 25px;
+		}
+
+		.project-content h3 {
+			margin-bottom: 9px;
+			font-size: 1.25rem;
+		}
+
+		.project-content p {
+			margin-bottom: 17px;
+			color: #c3d2cc;
+			font-size: 0.92rem;
+		}
+
+		.tag-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			list-style: none;
+		}
+
+		.tag-list li {
+			padding: 5px 10px;
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			border-radius: 3px;
+			color: #e3eee8;
+			font-size: 0.74rem;
+		}
+
+		/* Contact area and footer */
+		.contact-grid {
+			display: grid;
+			grid-template-columns: 0.85fr 1.15fr;
+			gap: 70px;
+		}
+
+		.contact-copy p {
+			max-width: 400px;
+			margin-bottom: 24px;
+			color: var(--muted);
+		}
+
+		.contact-details {
+			display: grid;
+			gap: 14px;
+		}
+
+		.contact-link {
+			display: flex;
+			align-items: center;
+			gap: 13px;
+			color: var(--green-dark);
+			font-weight: 600;
+		}
+
+		.contact-link span:first-child {
+			display: grid;
+			width: 38px;
+			height: 38px;
+			place-items: center;
+			border-radius: 4px;
+			background: var(--mint);
+		}
+
+		.contact-link:hover {
+			color: var(--orange);
+		}
+
+		.contact-panel {
+			padding: 34px;
+			border: 1px solid var(--line);
+			border-radius: 4px;
+			background: var(--white);
+			box-shadow: var(--shadow);
+		}
+
+		.contact-panel h3 {
+			margin-bottom: 8px;
+			font-size: 1.25rem;
+		}
+
+		.contact-panel p {
+			margin-bottom: 20px;
+			color: var(--muted);
+		}
+
+		.site-footer {
+			padding: 22px 0;
+			border-top: 1px solid var(--line);
+			color: var(--muted);
+			font-size: 0.83rem;
+		}
+
+		.footer-inner {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: 10px;
+		}
+
+		/* Gentle entrance and decorative motion */
+		@keyframes rise-in {
+			from { opacity: 0; transform: translateY(18px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+
+		@keyframes float {
+			0%, 100% { transform: translateY(0); }
+			50% { transform: translateY(-8px); }
+		}
+
+		/* Tablet and mobile layouts */
+		@media (max-width: 800px) {
+			.nav-links { gap: 16px; }
+			.hero-grid { gap: 35px; }
+			.hero-visual { min-height: 370px; }
+			.about-grid, .skills-layout, .contact-grid { gap: 38px; }
+		}
+
+		@media (max-width: 640px) {
+			.container { width: min(100% - 36px, 500px); }
+			.section { padding: 72px 0; }
+			.nav-wrap { min-height: 68px; align-items: flex-start; flex-direction: column; gap: 8px; padding: 13px 0; }
+			.nav-links { width: 100%; gap: 19px; overflow-x: auto; padding-bottom: 2px; }
+			.nav-links a { white-space: nowrap; font-size: 0.8rem; }
+			.nav-contact { padding: 0; border: 0; }
+			.hero { padding: 58px 0 70px; }
+			.hero-grid { grid-template-columns: 1fr; gap: 25px; }
+			.hero h1 { font-size: clamp(2.7rem, 13vw, 4rem); }
+			.hero-visual { min-height: 330px; }
+			.hero-photo { inset: 0 20px 0 25px; }
+			.photo-caption { right: 0; bottom: 18px; }
+			.about-grid, .skills-layout, .contact-grid { grid-template-columns: 1fr; }
+			.about-note { padding: 22px; }
+			.education-list, .project-grid { grid-template-columns: 1fr; }
+			.education-item { padding: 20px; }
+			.contact-panel { padding: 25px; }
+		}
+
+		/* Respect users who prefer less animation. */
+		@media (prefers-reduced-motion: reduce) {
+			*, *::before, *::after {
+				scroll-behavior: auto !important;
+				animation-duration: 0.01ms !important;
+				animation-iteration-count: 1 !important;
+				transition-duration: 0.01ms !important;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Navigation links jump to the matching page sections. -->
+	<header class="site-header">
+		<nav class="container nav-wrap" aria-label="Main navigation">
+			<a class="brand" href="#home">Shruti Jaybhay<span>.</span></a>
+			<ul class="nav-links">
+				<li><a href="#about">About</a></li>
+				<li><a href="#education">Education</a></li>
+				<li><a href="#skills">Skills</a></li>
+				<li><a href="#projects">Projects</a></li>
+				<li><a class="nav-contact" href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<!-- Home: introduce yourself and link to key actions. -->
+		<section class="hero" id="home">
+			<div class="container hero-grid">
+				<div class="hero-copy">
+					<span class="eyebrow">MCA Student · Fresher</span>
+					<h1>Hello, I'm<br><span>Shruti Jaybhay.</span></h1>
+					<p>I’m an MCA student and fresher with a foundation in programming, web development, and databases. I enjoy creating practical technology and exploring how it can support agriculture and everyday work.</p>
+					<div class="button-row">
+						<a class="button" href="#projects">Explore my work <span aria-hidden="true">&nbsp;↗</span></a>
+						<a class="button button-secondary" href="https://github.com/shrutijaybhay" target="_blank" rel="noopener noreferrer">Visit GitHub</a>
+					</div>
+				</div>
+				<div class="hero-visual" aria-label="A workspace with a laptop and notebook">
+					<div class="hero-photo">
+						<!-- Replace this image URL with a professional portrait if you prefer. -->
+						<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=85" alt="Laptop and notebook on a bright desk">
+					</div>
+					<div class="photo-caption">
+						<span class="caption-mark" aria-hidden="true">✳</span>
+						<span><strong>Curious by nature</strong><small>Building skills, one project at a time</small></span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- About: a short personal introduction. -->
+		<section class="section" id="about">
+			<div class="container about-grid">
+				<div class="section-heading about-copy">
+					<span class="eyebrow">A little about me</span>
+					<h2>Learning with purpose, building with care.</h2>
+					<p>I’m Shruti Jaybhay, an MCA student and fresher interested in software development and practical problem-solving. My studies have helped me develop a foundation in programming, databases, and web technologies.</p>
+					<p>I’m especially interested in how technology can support agriculture. Through projects like AI Farming and Farm Tech, I’ve explored digital ideas for crop information and farm labour management.</p>
+				</div>
+				<blockquote class="about-note">“Good technology starts with understanding the people and problems it is meant to serve.”</blockquote>
+			</div>
+		</section>
+
+		<!-- Education and academic results -->
+		<section class="section education" id="education">
+			<div class="container">
+				<div class="section-heading">
+					<span class="eyebrow">Education</span>
+					<h2>My learning journey</h2>
+					<p>A foundation in computer applications, with plenty more to explore.</p>
+				</div>
+				<div class="education-list">
+					<article class="education-item">
+						<span class="education-icon" aria-hidden="true">⌘</span>
+						<div>
+							<h3>Master of Computer Applications (MCA)</h3>
+							<p>Dada Patil College, Karjat, Ahilyanagar</p>
+							<p class="year">Currently studying</p>
+						</div>
+					</article>
+					<article class="education-item">
+						<span class="education-icon" aria-hidden="true">▤</span>
+						<div>
+							<h3>Graduation</h3>
+							<p>Academic result</p>
+							<p class="year">7.78 CGPA</p>
+						</div>
+					</article>
+					<article class="education-item">
+						<span class="education-icon" aria-hidden="true">▤</span>
+						<div>
+							<h3>12th Standard</h3>
+							<p>Academic result</p>
+							<p class="year">68%</p>
+						</div>
+					</article>
+					<article class="education-item">
+						<span class="education-icon" aria-hidden="true">▤</span>
+						<div>
+							<h3>10th Standard</h3>
+							<p>Academic result</p>
+							<p class="year">77.20%</p>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- Technical skills: a simple list that is easy to update. -->
+		<section class="section" id="skills">
+			<div class="container skills-layout">
+				<div class="section-heading">
+					<span class="eyebrow">Technical skills</span>
+					<h2>Tools I’m learning and using</h2>
+					<p>My current toolkit spans programming, web development, databases, and version control.</p>
+				</div>
+				<div class="skills-content">
+					<div class="skill-list" aria-label="Technical skills">
+						<div class="skill"><span class="skill-dot" aria-hidden="true"></span>C</div>
+						<div class="skill"><span class="skill-dot" aria-hidden="true"></span>C++</div>
+						<div class="skill"><span class="skill-dot" aria-hidden="true"></span>Core Java</div>
+						<div class="skill"><span class="skill-dot" aria-hidden="true"></span>Python</div>
+						<div class="skill"><span class="skill-dot" aria-hidden="true"></span>HTML</div>
+						<div class="skill"><span class="skill-dot" aria-hidden="true"></span>CSS</div>
+						<div class="skill"><span class="skill-dot" aria-hidden="true"></span>JavaScript</div>
+						<div class="skill"><span class="skill-dot" aria-hidden="true"></span>SQL</div>
+						<div class="skill"><span class="skill-dot" aria-hidden="true"></span>MySQL</div>
+						<div class="skill"><span class="skill-dot" aria-hidden="true"></span>Git</div>
+						<div class="skill"><span class="skill-dot" aria-hidden="true"></span>GitHub</div>
+					</div>
+					<div class="languages" aria-label="Languages">
+						<strong>Languages</strong>
+						<span class="language-tag">Marathi</span>
+						<span class="language-tag">Hindi</span>
+						<span class="language-tag">English</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects: descriptions are starting points; customize to match your work. -->
+		<section class="section projects" id="projects">
+			<div class="container">
+				<div class="section-heading">
+					<span class="eyebrow">Selected projects</span>
+					<h2>Ideas rooted in real-world needs</h2>
+					<p>Exploring ways technology can help people make more informed decisions.</p>
+				</div>
+				<div class="project-grid">
+					<article class="project-card">
+						<div class="project-art" aria-hidden="true"><span class="project-symbol">🌱</span></div>
+						<div class="project-content">
+							<h3>AI Farming</h3>
+							<p>An agriculture-based project that helps farmers with crop information, smart irrigation, weather information, plant disease detection, and government farming schemes.</p>
+						</div>
+					</article>
+					<article class="project-card">
+						<div class="project-art" aria-hidden="true"><span class="project-symbol">🚜</span></div>
+						<div class="project-content">
+							<h3>Farm Tech</h3>
+							<p>A web-based farm labour management project for maintaining labourer details, daily attendance, working days, wage calculations, and salary payment records.</p>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact links use only the profiles provided. -->
+		<section class="section" id="contact">
+			<div class="container contact-grid">
+				<div class="contact-copy">
+					<div class="section-heading">
+						<span class="eyebrow">Contact me</span>
+						<h2>Let’s start a conversation.</h2>
+					</div>
+					<p>I’m open to connecting about technology, software development, and my project work. Find me on GitHub or LinkedIn.</p>
+					<div class="contact-details">
+						<a class="contact-link" href="https://github.com/shrutijaybhay" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⌘</span><span>github.com/shrutijaybhay</span></a>
+						<a class="contact-link" href="https://www.linkedin.com/in/shruti-jaybhay-b35391369/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">in</span><span>LinkedIn profile</span></a>
+					</div>
+				</div>
+				<div class="contact-panel">
+					<h3>Let’s connect</h3>
+					<p>Visit my professional profile to learn more about my background and follow my learning journey.</p>
+					<a class="button" href="https://www.linkedin.com/in/shruti-jaybhay-b35391369/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">&nbsp;↗</span></a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<span>© 2026 Shruti Jaybhay</span>
+			<span>MCA Student · Fresher</span>
+		</div>
+	</footer>
+</body>
+</html>
